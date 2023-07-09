@@ -7,7 +7,7 @@
 #define SCREEN HEIGHT 64
 
 #define OLED RESET -1
-Adafruit_SH1106 display(OLED RESET);
+Adafruit_SH1106 display(OLED_RESET);
 int irin = 11;
 int irout = 5;
 int buzz = 10;
@@ -78,7 +78,8 @@ void loop() {
 	int in = digitalRead(irin); 
 	int out = digitalRead(irout); 
 	if (in==LOW && out == HIGH) {
-		while (out==HIGH) {out = digitalRead(irout);
+		while (out==HIGH) {
+			out = digitalRead(irout);
 	}
 	digitalWrite(buzz, HIGH);
 	delay(100);
@@ -117,8 +118,10 @@ void loop() {
 		delay(100);
 		display.clearDisplay();
 		display.setTextColor(WHITE);
-		display.setTextSize(1); display.setCursor(15, 0);
-		display.print("Current Visitor"); display.setTextSize(2);
+		display.setTextSize(1); 
+		display.setCursor(15, 0);
+		display.print("Current Visitor"); 
+		display.setTextSize(2);
 		display.setCursor(50, 15);
 		display.print(incount);
 		display.setTextSize(1);
